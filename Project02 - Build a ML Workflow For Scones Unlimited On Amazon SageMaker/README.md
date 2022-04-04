@@ -94,12 +94,12 @@ This step has many suggestions to make your project stands out but they are opti
 ## Some recommendations
 
 ### Execution Flow of the Step Function
-<img src="fig/Execution.png" alt="sagemaker-studio-git2.png" width="900"/>
+<img src="fig/Execution.png" alt="sagemaker-studio-git2.png" width="1200"/>
 
 ### Step Functions Graph and Output
-<img src="fig/Screenshot from 2022-04-03 05-57-27.png" alt="Screenshot from 2022-04-03 05-57-27.png" width="900"/>
+<img src="fig/Screenshot from 2022-04-03 05-57-27.png" alt="Screenshot from 2022-04-03 05-57-27.png" width="1200"/>
 
-<img src="fig/Screenshot from 2022-04-03 06-00-11.png" alt="Screenshot from 2022-04-03 06-00-11.png" width="900"/>
+<img src="fig/Screenshot from 2022-04-03 06-00-11.png" alt="Screenshot from 2022-04-03 06-00-11.png" width="1200"/>
 
 ## License
 [License](LICENSE.txt)
