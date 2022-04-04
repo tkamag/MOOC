@@ -51,15 +51,15 @@ pip install jupyterlab
 ```
 * There are also docker containers containing jupyter lab from [Jupyter Docker Stacks](https://jupyter-docker-stacks.readthedocs.io/en/latest/index.html).
 
-## Data Staging 
+## Step 1: Data Staging 
 In this step, you will complete the **Data Staging** section of the starter notebook. More specifically, you will first extract the data from the hosting service. Once the data is downloaded, you will explore it and transform it into the correct shape and format. Finally, you will load the data to S3.
 
-## Model training and Deployment
+## Step 2: Model training and Deployment
 In this step, you will complete the **Model Training** section in the starter notebook.
 
 You will use a ``AWS`` build-in **image classification** algorithm to train the model. Once the model is successfully trained, you will deploy it to an endpoint and configure Model Monitor to track the deployment. At the end, you will make an inference to test the model endpoint.
 
-## Lamdas and Step Function Workflow
+## Step 3: Lamdas and Step Function Workflow
 In this step, you will work on the **Draft Lambdas and Step Function Workflow** section. You're going to write and deploy three Lambda functions, and then use the Step Functions visual editor to chain them together!
 
 The first lambda function is responsible for data generation. The second one is responsible for image classification. And the third function is responsible for filtering out low-confidence inferences.
@@ -70,12 +70,12 @@ Besides the starter notebook, you will also submit other files to demonstrate yo
 * **Take a screenshot** of the working Step function
 * **Export the step function** as a JSON file
 
-## Testing and Evaluation
+## Step 4: Testing and Evaluation
 In this step, you will complete the ùùTesting and Evaluation** section in the starter notebook.
 
 You will first perform several step function invokations using data from the test dataset. This process should give you confidence that the workflow both succeeds AND fails as expected. In addition, you will use the captured data from SageMaker Model Monitor to create a visualization to monitor the model.
 
-## Optional Challenge
+## Step 5: Optional Challenge
 This step has many suggestions to make your project stands out but they are optional. Skipping them won't affect your submission.
 
 1. Extend your workflow to incorporate more classes: the CIFAR dataset includes other vehicles that Scones Unlimited can identify with this model.
@@ -88,7 +88,7 @@ This step has many suggestions to make your project stands out but they are opti
 
 5. Write a project README to showcase your project. You can share screencaps of your solution working in Step Functions, your visualization of the ML Model, or any other stretch goals that you pursued and how that went for you
 
-## Cleanup Cloud Resources
+## Step 6: Cleanup Cloud Resources
 **Clean up your resources** to avoid running costs on AWS. Most resources used in this project will be in the **Inference** and **Training** tabs on the SageMaker dashboard, such as **endpoints, models and running instances**.
 
 ## Some recommendations
