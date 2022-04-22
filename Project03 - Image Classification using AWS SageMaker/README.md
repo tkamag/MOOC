@@ -32,9 +32,9 @@ Remember that your README should:
 **Tunning parameters** All 3 types of hyperparameters was tunned in 6 training job by 2 parallel instances. 
 
 <figure>
-  <img src="./fig/training_job_.PNG" alt=".." title="Optional title" width="85%" height="70%"/>
-  <img src="./fig/frame_1.PNG" alt=".." title="Optional title" width="85%" height="70%"/>
-<img src="./fig/training_job_5_.PNG" alt=".." title="Optional title" width="85%" height="70%"/>
+  <img src="./fig/training_job_.png" alt=".." title="Optional title" width="85%" height="70%"/>
+  <img src="./fig/frame_1.png" alt=".." title="Optional title" width="85%" height="70%"/>
+<img src="./fig/training_job_5_.png" alt=".." title="Optional title" width="85%" height="70%"/>
 </figure>
 
 ### Best parameters
@@ -43,8 +43,8 @@ Remember that your README should:
 * epochs: 3
 
 <figure>
-  <img src="./fig/hpo_job__1.PNG" alt=".." title="Optional title" width="85%" height="70%"/>
-  <img src="./fig/hpo_job__2.PNG" alt=".." title="Optional title" width="85%" height="70%"/>
+  <img src="./fig/hpo_job__1.png" alt=".." title="Optional title" width="85%" height="70%"/>
+  <img src="./fig/hpo_job__2.png" alt=".." title="Optional title" width="85%" height="70%"/>
 </figure>
 
 ## Debugging and Profiling
@@ -105,8 +105,8 @@ response
 ````
 
 <figure>
-  <img src="./fig/Endpoint_1.PNG" alt=".." title="Optional title" width="85%" height="70%"/>
-  <img src="./fig/Endpoint_2.PNG" alt=".." title="Optional title" width="85%" height="70%"/>
+  <img src="./fig/Endpoint_1.png" alt=".." title="Optional title" width="85%" height="70%"/>
+  <img src="./fig/Endpoint_2.png" alt=".." title="Optional title" width="85%" height="70%"/>
 </figure>
 
 ## Standout Suggestions

@@ -21,7 +21,7 @@ For tunning our model, we've made the choice of tuning tunning three hyoerparame
   
 * `lr` - **learning rate**, continuous hyperparameters which is used to find better learning rate for the model. Range from 0.001 to 0.1
 
-* `epochs` - **Epochs**, is an integer parameter which is used when an ENTIRE dataset is passed forward and backward through the neural network only ONCE..
+* `epochs` - **Epochs**, is an integer parameter which is used when an ENTIRE dataset is passed forward and backward through the neural network only ONCE.
 
 Remember that your README should:
 - Include a screenshot of completed training jobs
@@ -32,10 +32,11 @@ Remember that your README should:
 **Tunning parameters** All 3 types of hyperparameters was tunned in 6 training job by 2 parallel instances. 
 
 <figure>
-  <img src="./fig/training_job_.png" alt=".." title="Optional title" width="85%" height="70%"/>
+  <img src="./fig/training_job_.PNG" alt=".." title="Optional title" width="85%" height="70%"/>
   <img src="./fig/frame_1.PNG" alt=".." title="Optional title" width="85%" height="70%"/>
 <img src="./fig/training_job_5_.PNG" alt=".." title="Optional title" width="85%" height="70%"/>
 </figure>
+
 
 ### Best parameters
 * learning rate: 0.003132
