@@ -1,104 +1,113 @@
-# Build a ML Workflow For Scones Unlimited On Amazon Sagemaker
+# Image Classification using AWS SageMaker
 
-## Introduction to AWS Machine Learning Final Project
+Use AWS Sagemaker to train a pretrained model that can perform image classification by using the Sagemaker profiling, debugger, hyperparameter tuning and other good ML engineering practices. This can be done on either the provided dog breed classication data set or one of your choice.
 
-### Overview
-In this project, we will build and ship an image classification model with ``Amazon Sagemaker`` for Scones Unlimited, a scone-delivery-focused logistic company.
+## Project Set Up and Installation
+Enter AWS through the gateway in the course and open SageMaker Studio. 
+Download the starter files.
+Download/Make the dataset available. 
 
-### Background
-Image Classifiers are used in the field of computer vision to identify the content of an image and it is used across a broad variety of industries, from advanced technologies like autonomous vehicles and augmented reality, to eCommerce platforms, and even in diagnostic medicine.
+## Dataset
+The provided dataset is the dogbreed classification dataset which can be found in the classroom.
+The project is designed to be dataset independent so if there is a dataset that is more interesting or relevant to your work, you are welcome to use it to complete the project.
 
-The **image classification** model can help the team in a variety of ways in their operating environment: detecting people and vehicles in video feeds from roadways, better support routing for their engagement on social media, detecting defects in their scones, and many more!
+### Access
+Upload the data to an S3 bucket through the AWS Gateway so that SageMaker has access to the data. 
 
-In this project, you'll be building an **image classification** model that can automatically detect which kind of vehicle delivery drivers have, in order to route them to the correct loading bay and orders. Assigning delivery professionals who have a bicycle to nearby orders and giving motorcyclists orders that are farther can help Scones Unlimited optimize their operations.
+## Hyperparameter Tuning
+For tunning our model, we've made the choice of tuning tunning three hyoerparameters:
 
-As an MLE, our goal is to ship a **scalable and safe** model. Once your model becomes available to other teams on-demand, it’s important that your model **can scale to meet demand**, and that **safeguards are in place to monitor and control** for drift or degraded performance.
+* `batch-size` - **batch size**, categorical hyperparameter which define batch size for training/testing/validation dataset. Supported values 128, 256 and 512.
+  
+* `lr` - **learning rate**, continuous hyperparameters which is used to find better learning rate for the model. Range from 0.001 to 0.1
 
-In this project, we’ll use ``AWS Sagemaker`` to build an **image classification** model that can tell bicycles apart from motorcycles. You'll deploy your model, use AWS Lambda functions to build supporting services, and AWS Step Functions to compose your model and services into an event-driven application. At the end of this project, you will have created a portfolio-ready demo that showcases your ability to build and compose scalable, ML-enabled, AWS applications.
+* `epochs` - **Epochs**, is an integer parameter which is used when an ENTIRE dataset is passed forward and backward through the neural network only ONCE.
 
-### Project Steps Overview
-* Step 1: Data staging
-* Step 2: Model training and deployment
-* Step 3: Lambdas and step function workflow
-* Step 4: Testing and evaluation*
-* Step 5: Optional challenge
-* Step 6: Cleanup cloud resources
+Remember that your README should:
+- Include a screenshot of completed training jobs
+- Logs metrics during the training process
+- Tune at least two hyperparameters
+- Retrieve the best best hyperparameters from all your training jobs
 
-## Getting Started
-* Clone this template repository `git clone git@github.com:udacity/nd009t-c1-intro-to-ml-project-starter.git` into AWS Sagemaker Studio (or local development).
+**Tunning parameters** All 3 types of hyperparameters was tunned in 6 training job by 2 parallel instances. 
 
-<img src="img/sagemaker-studio-git1.png" alt="sagemaker-studio-git1.png" width="500"/>
-<img src="img/sagemaker-studio-git2.png" alt="sagemaker-studio-git2.png" width="500"/>
+<figure>
+  <img src="./fig/training_job_.png" alt=".." title="Optional title" width="85%" height="70%"/>
+  <img src="./fig/frame_1.png" alt=".." title="Optional title" width="85%" height="70%"/>
+<img src="./fig/training_job_5_.png" alt=".." title="Optional title" width="85%" height="70%"/>
+</figure>
 
-* Proceed with the project within the [jupyter notebook](project-template.ipynb).
+### Best parameters
+* learning rate: 0.003132
+* batch-size: 256
+* epochs: 3
+
+<figure>
+  <img src="./fig/hpo_job__1.png" alt=".." title="Optional title" width="85%" height="70%"/>
+  <img src="./fig/hpo_job__2.png" alt=".." title="Optional title" width="85%" height="70%"/>
+</figure>
+
+## Debugging and Profiling
+**TODO**: Give an overview of how you performed model debugging and profiling in Sagemaker.
+
+For model debugging and profiling, we've retain some rules for debugger jobs:
+* `Vanishing_gradient`
+* `Overfit`
+* `Overtraining`
+* `LowGPUUtilization`
+* `ProfilerReport`
+* `loss_not_decreasing`
+* `poor_weight_initialization`
+
+No issue has been found and might be fixed.
 
 
-### Dependencies
+### Results
+**TODO**: What are the results/insights did you get by profiling/debugging your model?
 
-```
-Python 3.7
-Pandas >= 1.2.4
-```
+* Model can be trained less time cause we already use pretrained model. `transfer learning` **allow us to spend less time on training since we need to adjust only output layer and don't need to train entire model from scratch.**
 
-### Installation
-For this project, it is highly recommended to use Sagemaker Studio from the course provided AWS workspace. This will simplify much of the installation needed to get started.
+* Bigger `batch-size` might be used to utilize more CPU resources and build more cost optimized predictor
 
-For local development, you will need to setup a jupyter lab instance.
-* Follow the [jupyter install](https://jupyter.org/install.html) link for best practices to install and start a jupyter lab instance.
-* If you have a python virtual environment already installed you can just `pip` install it.
-```
-pip install jupyterlab
-```
-* There are also docker containers containing jupyter lab from [Jupyter Docker Stacks](https://jupyter-docker-stacks.readthedocs.io/en/latest/index.html).
+**TODO** Remember to provide the profiler html/pdf file in your submission.
 
-## Data Staging 
-In this step, you will complete the **Data Staging** section of the starter notebook. More specifically, you will first extract the data from the hosting service. Once the data is downloaded, you will explore it and transform it into the correct shape and format. Finally, you will load the data to S3.
 
-## Model training and Deployment
-In this step, you will complete the **Model Training** section in the starter notebook.
+## Model Deployment
+The deployed endpoint is accepting bytes for an image, but the butes should be saved from and image. This is implemented in train_and_deploy.ipynb with the Image and io.BytesIO modules. Here is a code sample:
 
-You will use a ``AWS`` build-in **image classification** algorithm to train the model. Once the model is successfully trained, you will deploy it to an endpoint and configure Model Monitor to track the deployment. At the end, you will make an inference to test the model endpoint.
+````python
+import gzip 
+import numpy as np
+import random
+import os
+from PIL import Image
+import io
 
-## Lamdas and Step Function Workflow
-In this step, you will work on the **Draft Lambdas and Step Function Workflow** section. You're going to write and deploy three Lambda functions, and then use the Step Functions visual editor to chain them together!
+file = 'data/cifar-10-batches-py/data_batch_1'
+def unpickle(file):
+    import pickle
+    with open(file, 'rb') as fo:
+        data = pickle.load(fo, encoding='bytes')
+    return data
 
-The first lambda function is responsible for data generation. The second one is responsible for image classification. And the third function is responsible for filtering out low-confidence inferences.
+data=unpickle(file)
+data=np.reshape(data[b'data'][0], (32, 32, 3), order='F')
+im = Image.fromarray(data,mode='RGB')
 
-Besides the starter notebook, you will also submit other files to demonstrate your work in this step. These files are:
+byteImgIO = io.BytesIO()
+im.save(byteImgIO, "PNG")
+byteImgIO.seek(0)
+byteImg = byteImgIO.read()
 
-* **Save the code** for each lambda function in a python script called 'lambda.py'
-* **Take a screenshot** of the working Step function
-* **Export the step function** as a JSON file
+response=predictor.predict(byteImg, initial_args={"ContentType": "image/jpeg"})
+# Image.open(io.BytesIO(byteImg))
+response
+````
 
-## Testing and Evaluation
-In this step, you will complete the ùùTesting and Evaluation** section in the starter notebook.
+<figure>
+  <img src="./fig/Endpoint_1.png" alt=".." title="Optional title" width="85%" height="70%"/>
+  <img src="./fig/Endpoint_2.png" alt=".." title="Optional title" width="85%" height="70%"/>
+</figure>
 
-You will first perform several step function invokations using data from the test dataset. This process should give you confidence that the workflow both succeeds AND fails as expected. In addition, you will use the captured data from SageMaker Model Monitor to create a visualization to monitor the model.
-
-## Optional Challenge
-This step has many suggestions to make your project stands out but they are optional. Skipping them won't affect your submission.
-
-1. Extend your workflow to incorporate more classes: the CIFAR dataset includes other vehicles that Scones Unlimited can identify with this model.
-
-2. Modify your event driven workflow: can you rewrite your Lambda functions so that the workflow can process multiple image inputs in parallel? Can the Step Function "fan out" to accommodate this new workflow?
-
-3. Consider the test data generator we provided for you. Can we use it to create a "dummy data" generator, to simulate a continuous stream of input data? Or a big parallel load of data?
-
-4. What if we want to get notified every time our step function errors out? Can we use the Step Functions visual editor in conjunction with a service like SNS to accomplish this? Try it out!
-
-5. Write a project README to showcase your project. You can share screencaps of your solution working in Step Functions, your visualization of the ML Model, or any other stretch goals that you pursued and how that went for you
-
-## Cleanup Cloud Resources
-**Clean up your resources** to avoid running costs on AWS. Most resources used in this project will be in the **Inference** and **Training** tabs on the SageMaker dashboard, such as **endpoints, models and running instances**.
-
-## Some recommendations
-
-### Execution Flow of the Step Function
-<img src="fig/Execution.png" alt="sagemaker-studio-git2.png" width="500"/>
-
-### Step Functions Graph and Output
-<img src="fig/Screenshot from 2022-04-03 05-57-27.png" alt="Screenshot from 2022-04-03 05-57-27.png" width="500"/>
-
-<img src="fig/Screenshot from 2022-04-03 06-00-11.png" alt="Screenshot from 2022-04-03 06-00-11.png" width="500"/>
-## License
-[License](LICENSE.txt)
+## Standout Suggestions
+**TODO (Optional):** This is where you can provide information about any standout suggestions that you have attempted.
