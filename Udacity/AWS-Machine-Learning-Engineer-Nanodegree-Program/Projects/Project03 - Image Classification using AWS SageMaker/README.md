@@ -1,113 +1,82 @@
-# Image Classification using AWS SageMaker
 
-Use AWS Sagemaker to train a pretrained model that can perform image classification by using the Sagemaker profiling, debugger, hyperparameter tuning and other good ML engineering practices. This can be done on either the provided dog breed classication data set or one of your choice.
+# Inventory Monitoring at Distribution Centers
+
+**Distribution centers** often use robots to move objects as a part of their operations. Objects are carried in bins which can contain multiple objects.
+
+In this project, we will have to build a model that can count the number of objects in each bin. A system like this can be used to track inventory and make sure that delivery consignments have the correct number of items.
+
+To build this project we will use **AWS SageMaker** and good machine learning engineering practices to fetch data from a database, preprocess it, and then train a machine learning model. This project will serve as a demonstration of end-to-end machine learning engineering skills that we have learned as a part of this nanodegree.
 
 ## Project Set Up and Installation
-Enter AWS through the gateway in the course and open SageMaker Studio. 
-Download the starter files.
-Download/Make the dataset available. 
 
-## Dataset
-The provided dataset is the dogbreed classification dataset which can be found in the classroom.
-The project is designed to be dataset independent so if there is a dataset that is more interesting or relevant to your work, you are welcome to use it to complete the project.
-
-### Access
-Upload the data to an S3 bucket through the AWS Gateway so that SageMaker has access to the data. 
-
-## Hyperparameter Tuning
-For tunning our model, we've made the choice of tuning tunning three hyoerparameters:
-
-* `batch-size` - **batch size**, categorical hyperparameter which define batch size for training/testing/validation dataset. Supported values 128, 256 and 512.
-  
-* `lr` - **learning rate**, continuous hyperparameters which is used to find better learning rate for the model. Range from 0.001 to 0.1
-
-* `epochs` - **Epochs**, is an integer parameter which is used when an ENTIRE dataset is passed forward and backward through the neural network only ONCE.
-
-Remember that your README should:
-- Include a screenshot of completed training jobs
-- Logs metrics during the training process
-- Tune at least two hyperparameters
-- Retrieve the best best hyperparameters from all your training jobs
-
-**Tunning parameters** All 3 types of hyperparameters was tunned in 6 training job by 2 parallel instances. 
-
-<figure>
-  <img src="./fig/training_job_.png" alt=".." title="Optional title" width="85%" height="70%"/>
-  <img src="./fig/frame_1.png" alt=".." title="Optional title" width="85%" height="70%"/>
-<img src="./fig/training_job_5_.png" alt=".." title="Optional title" width="85%" height="70%"/>
-</figure>
-
-### Best parameters
-* learning rate: 0.003132
-* batch-size: 256
-* epochs: 3
-
-<figure>
-  <img src="./fig/hpo_job__1.png" alt=".." title="Optional title" width="85%" height="70%"/>
-  <img src="./fig/hpo_job__2.png" alt=".." title="Optional title" width="85%" height="70%"/>
-</figure>
-
-## Debugging and Profiling
-**TODO**: Give an overview of how you performed model debugging and profiling in Sagemaker.
-
-For model debugging and profiling, we've retain some rules for debugger jobs:
-* `Vanishing_gradient`
-* `Overfit`
-* `Overtraining`
-* `LowGPUUtilization`
-* `ProfilerReport`
-* `loss_not_decreasing`
-* `poor_weight_initialization`
-
-No issue has been found and might be fixed.
-
-
-### Results
-**TODO**: What are the results/insights did you get by profiling/debugging your model?
-
-* Model can be trained less time cause we already use pretrained model. `transfer learning` **allow us to spend less time on training since we need to adjust only output layer and don't need to train entire model from scratch.**
-
-* Bigger `batch-size` might be used to utilize more CPU resources and build more cost optimized predictor
-
-**TODO** Remember to provide the profiler html/pdf file in your submission.
-
-
-## Model Deployment
-The deployed endpoint is accepting bytes for an image, but the butes should be saved from and image. This is implemented in train_and_deploy.ipynb with the Image and io.BytesIO modules. Here is a code sample:
+Dependencies
 
 ````python
-import gzip 
-import numpy as np
-import random
-import os
-from PIL import Image
-import io
-
-file = 'data/cifar-10-batches-py/data_batch_1'
-def unpickle(file):
-    import pickle
-    with open(file, 'rb') as fo:
-        data = pickle.load(fo, encoding='bytes')
-    return data
-
-data=unpickle(file)
-data=np.reshape(data[b'data'][0], (32, 32, 3), order='F')
-im = Image.fromarray(data,mode='RGB')
-
-byteImgIO = io.BytesIO()
-im.save(byteImgIO, "PNG")
-byteImgIO.seek(0)
-byteImg = byteImgIO.read()
-
-response=predictor.predict(byteImg, initial_args={"ContentType": "image/jpeg"})
-# Image.open(io.BytesIO(byteImg))
-response
+Python 3.7
+PyTorch >=3.6
 ````
 
+Installation
+
+For this project, it is highly recommended to use Sagemaker Studio from the course provided **AWS workspace**.
+
+For local development, you will need to setup a jupyter lab instance.
+
+Follow the [jupyter install](https://jupyter.org/install.html) link for best practices to install and start a jupyter lab instance.
+If you have a python virtual environment already installed you can just pip install it.
+
+````python
+pip install jupyterlab
+````
+
+In **AWS Sagemaker**, wahe created a bucket to store all of our downloaded images.
+
 <figure>
-  <img src="./fig/Endpoint_1.png" alt=".." title="Optional title" width="85%" height="70%"/>
-  <img src="./fig/Endpoint_2.png" alt=".." title="Optional title" width="85%" height="70%"/>
+  <img src="./fig/03.png" alt=".." title="Optional title" width="95%" height="70%"/>
 </figure>
 
-## Standout Suggestions
-**TODO (Optional):** This is where you can provide information about any standout suggestions that you have attempted.
+**OPTIONAL:** If your project has any special installation steps, this is where you should put it. To turn this project into a professional portfolio project, you are encouraged to make your `README` detailed and self-explanatory. For instance, here you could explain how to set up your project in AWS and provide helpful screenshots of the process.
+
+## Dataset
+
+### Overview
+
+To complete this project we will be using the Amazon Bin Image Dataset. The dataset contains 500,000 images of bins containing one or more objects. Dataset can be access from [here](https://registry.opendata.aws/amazon-bin-imagery/)
+
+For each image there is a metadata file containing information about the image like the number of objects, it's dimension and the type of object. For this task, we will try to classify the number of objects in each bin.
+
+### Access
+
+#### 1. Resource type
+
+S3 Bucket
+
+#### 2. Amazon Resource Name (ARN)
+
+arn:aws:s3:::aft-vbi-pds
+
+#### 3. AWS Region
+
+us-east-1
+
+#### 4.AWS CLI Access (No AWS account required)
+
+aws s3 ls --no-sign-request s3://aft-vbi-pds/
+
+## Model Training
+
+**TODO**: What kind of model did you choose for this experiment and why? Give an overview of the types of hyperparameters that you specified and why you chose them. Also remember to evaluate the performance of your model.
+
+For this experiment, we have use a [Resnet50](https://viso.ai/deep-learning/resnet-residual-neural-network/) model and decide to tune some parameters:
+
+````python
+hyperparameter_ranges = {
+    "learning_rate": ContinuousParameter(0.001, 0.1),
+    "batch_size": CategoricalParameter([32, 64, 128, 256]),
+    "epochs": CategoricalParameter([10,15, 25 , 30 ])    
+}
+````
+<figure>
+  <img src="./fig/04.png" alt=".." title="Optional title" width="95%" height="70%"/>
+</figure>
+
