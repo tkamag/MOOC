@@ -77,6 +77,6 @@ hyperparameter_ranges = {
 }
 ````
 <figure>
-  <img src="./fig/04.PNG" alt=".." title="Optional title" width="95%" height="70%"/>
+  <img src="./fig/04.png" alt=".." title="Optional title" width="95%" height="70%"/>
 </figure>
 
