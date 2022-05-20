@@ -32,7 +32,7 @@ pip install jupyterlab
 In **AWS Sagemaker**, wahe created a bucket to store all of our downloaded images.
 
 <figure>
-  <img src="./fig/03.PNG" alt=".." title="Optional title" width="95%" height="70%"/>
+  <img src="./fig/03.png" alt=".." title="Optional title" width="95%" height="70%"/>
 </figure>
 
 **OPTIONAL:** If your project has any special installation steps, this is where you should put it. To turn this project into a professional portfolio project, you are encouraged to make your `README` detailed and self-explanatory. For instance, here you could explain how to set up your project in AWS and provide helpful screenshots of the process.
@@ -77,6 +77,6 @@ hyperparameter_ranges = {
 }
 ````
 <figure>
-  <img src="./fig/04.PNG" alt=".." title="Optional title" width="95%" height="70%"/>
+  <img src="./fig/04.png" alt=".." title="Optional title" width="95%" height="70%"/>
 </figure>
 
