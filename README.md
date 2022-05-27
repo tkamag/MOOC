@@ -133,7 +133,7 @@ We've used model debugging and profiling to better monitor and debug your model 
 
 ## Model Querying
 
-* Just pick an image
+* Open an image
 
 ````python
 
@@ -170,5 +170,6 @@ np.argmax(response, 1)
   signifying the cost savings you will get for having chosen Managed Spot Training.
 This should be reflected in an additional line:
 
-	Managed Spot Training savings: 
+	Managed Spot Training savings:
+
   $$(1 - \frac{Y}{X})*100\%$$
