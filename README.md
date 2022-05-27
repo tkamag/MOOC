@@ -78,7 +78,7 @@ aws s3 ls --no-sign-request s3://aft-vbi-pds/
 Dataset is imbalance , here's a dataset distribution.
 
 <figure>
-  <img src="./fig/05.png" alt=".." title="Optional title" width="95%" height="70%"/>
+  <img src="./fig/05.png" alt=".." title="Optional title" width="75%" height="70%"/>
 </figure>
 
 ### 5. AWS Sagemaker Studio
