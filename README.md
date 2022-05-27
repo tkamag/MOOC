@@ -140,8 +140,8 @@ We've used model debugging and profiling to better monitor and debug your model 
 The accuracy of the [benchmark model](https://ieeexplore.ieee.org/document/8010578) chosen is 56 % (Approx), the experiment model didn’t achieve the results of the Benchmark. So as next steps, must work more on the data and its transformation. Maybe doing some data augmentation or transfer learning.
 
 <figure>
-  <img src="./fig/09.png" alt=".." title="Optional title" width="47%" height="70%"/>
-  <img src="./fig/10.png" alt=".." title="Optional title" width="52%" height="70%"/>
+  <img src="./fig/09.png" alt=".." title="Optional title" width="45%" height="70%"/>
+  <img src="./fig/10.png" alt=".." title="Optional title" width="49%" height="70%"/>
 </figure>
 
 ## Model Querying
