@@ -18,6 +18,10 @@ PyTorch >=3.6
 
 Installation
 
+````python
+pip install -r requirements.txt
+````
+
 For this project, it is highly recommended to use Sagemaker Studio from the course provided **AWS workspace**.
 
 For local development, you will need to setup a jupyter lab instance.
@@ -29,7 +33,7 @@ If you have a python virtual environment already installed you can just pip inst
 pip install jupyterlab
 ````
 
-In **AWS Sagemaker**, wahe created a bucket to store all of our downloaded images.
+In **AWS Sagemaker**, we have created a bucket to store all of our downloaded images.
 
 <figure>
   <img src="./fig/03.png" alt=".." title="Optional title" width="95%" height="70%"/>
@@ -45,27 +49,46 @@ To complete this project we will be using the Amazon Bin Image Dataset. The data
 
 For each image there is a metadata file containing information about the image like the number of objects, it's dimension and the type of object. For this task, we will try to classify the number of objects in each bin.
 
-### Access
+## Access
 
-#### 1. Resource type
+### 1. Resource type
 
+````sh
 S3 Bucket
+````
 
-#### 2. Amazon Resource Name (ARN)
+### 2. Amazon Resource Name (ARN)
 
+````sh
 arn:aws:s3:::aft-vbi-pds
+````
 
-#### 3. AWS Region
+### 3. AWS Region
 
+````sh
 us-east-1
+````
 
-#### 4.AWS CLI Access (No AWS account required)
+### 4.AWS CLI Access (No AWS account required)
 
+````sh
 aws s3 ls --no-sign-request s3://aft-vbi-pds/
+````
+
+Dataset is imbalance , here's a dataset distribution.
+
+<figure>
+  <img src="./fig/05.png" alt=".." title="Optional title" width="95%" height="70%"/>
+</figure>
+
+### 5. AWS Sagemaker Studio
+
+* Launch `AWS Sagemaker Studio`.
+* Import jupyter notebook file `sagemaker.ipynb`
+* Make sure kernel is started.
+* Run cells.
 
 ## Model Training
-
-**TODO**: What kind of model did you choose for this experiment and why? Give an overview of the types of hyperparameters that you specified and why you chose them. Also remember to evaluate the performance of your model.
 
 For this experiment, we have use a [Resnet50](https://viso.ai/deep-learning/resnet-residual-neural-network/) model and decide to tune some parameters:
 
@@ -76,7 +99,76 @@ hyperparameter_ranges = {
     "epochs": CategoricalParameter([10,15, 25 , 30 ])    
 }
 ````
+
+Best hyperpapameters and jobs
+
 <figure>
-  <img src="./fig/04.png" alt=".." title="Optional title" width="95%" height="70%"/>
+  <img src="./fig/06_.png" alt=".." title="Optional title" width="95%" height="70%"/>
 </figure>
 
+Best_estimator.hyperparameters
+
+````python
+{'_tuning_objective_metric': '"Test Loss"',
+ 'batch_size': '"32"',
+ 'epochs': '"25"',
+ 'learning_rate': '0.0012128565992639416',
+ 'sagemaker_container_log_level': '20',
+ 'sagemaker_estimator_class_name': '"PyTorch"',
+ 'sagemaker_estimator_module': '"sagemaker.pytorch.estimator"',
+ 'sagemaker_job_name': '"Capstone-awsmle-hpo-job-2022-05-26-07-05-00-441"',
+ 'sagemaker_program': '"tuner.py"',
+ 'sagemaker_region': '"us-east-1"',
+ 'sagemaker_submit_directory': '"s3://sagemaker-us-east-1-310754713715/Capstone-awsmle-hpo-job-2022-05-26-07-05-00-441/source/sourcedir.tar.gz"'}
+ ````
+
+## Model Profiling and Debugging
+
+We've used model debugging and profiling to better monitor and debug your model training job. After that we generate a Profil report.
+
+<figure>
+  <img src="./fig/07.png" alt=".." title="Optional title" width="95%" height="70%"/>
+  <img src="./fig/07_.png" alt=".." title="Optional title" width="95%" height="70%"/>
+</figure>
+
+## Model Querying
+
+* Just pick an image
+
+````python
+
+from PIL import Image
+img_dict={ "url": "https://aft-vbi-pds.s3.amazonaws.com/bin-images/109.jpg" }
+img_bytes = requests.get(img_dict['url']).content
+Image.open(io.BytesIO(img_bytes))
+````
+
+* Inference
+
+````python
+response=predictor.predict(json.dumps(img_dict), initial_args={"ContentType": "application/json"})
+response[0]
+````
+
+* Find the class
+
+````python
+np.argmax(response, 1)
+````
+
+## Furthermore
+
+* Train oour model on multiple instances.
+* Train our model on spot instances.
+
+  We have seen a notable difference between:
+  
+  > **X** (the actual compute-time your training job spent) and
+
+  > **Y** (the time you will be billed for after Spot discounting is applied) 
+  
+  signifying the cost savings you will get for having chosen Managed Spot Training.
+This should be reflected in an additional line:
+
+	Managed Spot Training savings: 
+  $$(1 - \frac{Y}{X})*100\%$$

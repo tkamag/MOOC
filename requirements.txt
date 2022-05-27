@@ -1,0 +1,7 @@
+###### Requirements without Version Specifiers ######
+requests
+boto3
+sagemaker
+tqdm
+
+###### Requirements with Version Specifiers ######

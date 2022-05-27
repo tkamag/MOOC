@@ -1,5 +1,3 @@
-#TODO: Import your dependencies.
-#For instance, below are some dependencies you might need if you are using Pytorch
 import numpy as np
 import torch
 import torch.nn as nn
@@ -89,7 +87,7 @@ def train(model, train_loader, validation_loader, criterion, optimizer, eps, hoo
                                                                                  best_loss))
         if loss_counter==1:
             break
-        if epoch==0:
+        if epoch==10:
             break
     return model
 
@@ -123,18 +121,19 @@ def create_data_loaders(data, batch_size):
         ])
 
     dataset = torchvision.datasets.ImageFolder(data, transform=test_transform)
-    lengths = [5223, 2611, 2609]
+    #lengths = [5223, 2611, 2609]
+    lengths = [5223, 2610, 2608]
     train_data, test_data , validation_data = torch.utils.data.random_split(dataset, lengths)
     
     
     #train_data = torchvision.datasets.ImageFolder(root=train_data_path, transform=train_transform)
-    train_data_loader = torch.utils.data.DataLoader(train_data, batch_size=batch_size, shuffle=True)
+    train_data_loader = torch.utils.data.DataLoader(train_data, batch_size=32, shuffle=True)
 
     #test_data = torchvision.datasets.ImageFolder(root=test_data_path, transform=test_transform)
-    test_data_loader  = torch.utils.data.DataLoader(test_data, batch_size=batch_size, shuffle=True)
+    test_data_loader  = torch.utils.data.DataLoader(test_data, batch_size=32, shuffle=True)
 
     #validation_data = torchvision.datasets.ImageFolder(root=validation_data_path, transform=test_transform)
-    validation_data_loader  = torch.utils.data.DataLoader(validation_data, batch_size=batch_size, shuffle=True) 
+    validation_data_loader  = torch.utils.data.DataLoader(validation_data, batch_size=32, shuffle=True) 
     
     return train_data_loader, test_data_loader, validation_data_loader
 
