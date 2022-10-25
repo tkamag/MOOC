@@ -42,10 +42,10 @@ ____
 ### A.1.2 Primary and Secondary Database Subnet Groups
 
  <img width="100%" src="./fig/00-primary-RDS_subnet_group.png">
-<p style='text-align: center; margin-right: 3em; font-family: Serif;'><b> Primary Subnet groups in North Virginia </b></p>
+<p style='text-align: center; margin-right: 3em; font-family: Serif;'><b> Primary Database Subnet groups in North Virginia </b></p>
 
  <img width="100%" src="./fig/01-secondaryDB_subnet_group.png">
-<p style='text-align: center; margin-right: 3em; font-family: Serif;'><b> Secondary Subnet groups in North California </b></p>
+<p style='text-align: center; margin-right: 3em; font-family: Serif;'><b> Secondary Database Subnet groups in North California </b></p>
 
 ### A.1.3 Primary and Secondary VPC Subnets
 
@@ -58,12 +58,13 @@ ____
 ### A.1.4 Primary and Secondary Subnet Routing
 
  <img width="100%" src="./fig/00-primary_VPC_route_table.png">
-<p style='text-align: center; margin-right: 3em; font-family: Serif;'><b> Primary VPC subnet in North Virginia </b></p>
+<p style='text-align: center; margin-right: 3em; font-family: Serif;'><b> Primary VPC subnet routing in North Virginia </b></p>
 
  <img width="100%" src="./fig/01-secondary_VPC_route_table.png">
-<p style='text-align: center; margin-right: 3em; font-family: Serif;'><b> Secondary VPC subnet in North California </b></p>
+<p style='text-align: center; margin-right: 3em; font-family: Serif;'><b> Secondary VPC subnet routing in North California </b></p>
 
 ## A.2 Availability Estimate
+
 Write a paragraph or two describing the achievable Recovery Time Objective (RTO) and Recovery Point Objective (RPO) for this Multi-AZ, multi-region database in terms of:
 
 1. Minimum RTO for a single AZ outage
@@ -74,6 +75,7 @@ Write a paragraph or two describing the achievable Recovery Time Objective (RTO)
 **Save** your answers in a text file named [estimate.txt](./estimates.md)
 
 ## A.3 Demonstrate normal usage
+
 In the **active** region:
 
 1. Create an EC2 keypair in the region
@@ -88,8 +90,8 @@ In the **active** region:
 
 **Save** the log of connecting to the databse, creating the table, writing to and reading from the table in a text file called [log_primary](./log_primary.sql)
 
-
 ## A.4 Monitor database
+
 1. Observe the **DB Connections** to the database and how this metric changes as you connect to the database
 
 2. Observe the **Replication** configuration with your multi-region read replica.
