@@ -41,7 +41,7 @@ ____
 
 ### A.1.2 Primary and Secondary Database Subnet Groups
 
- <img width="100%" src="./fig/00-primaryDB_subnet_group.png">
+ <img width="100%" src="./fig/00-primary-RDS_subnet_group.png">
 <p style='text-align: center; margin-right: 3em; font-family: Serif;'><b> Primary Subnet groups in North Virginia </b></p>
 
  <img width="100%" src="./fig/01-secondaryDB_subnet_group.png">
