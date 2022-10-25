@@ -72,3 +72,18 @@ Write a paragraph or two describing the achievable Recovery Time Objective (RTO)
 4. Minimum RPO for a single region outage
 
 **Save** your answers in a text file named [estimate.txt](./estimates.md)
+
+## A.3 Demonstrate normal usage
+In the **active** region:
+
+1. Create an EC2 keypair in the region
+
+2. Launch an Amazon Linux EC2 instance in the active region. Configure the instance to use the VPC's public subnet and security group (**UDARR-Application**).
+
+3. SSH to the instance and connect to the "udacity" database in the RDS instance.
+
+4. Verify that you can create a table, insert data, and read data from the database.
+
+5. You have now demonstrated that you can read and write to the primary database.
+
+**Save** the log of connecting to the databse, creating the table, writing to and reading from the table in a text file called [log_primary](./log_primary.sql)
