@@ -52,7 +52,3 @@ Here, you can find the VPC ID that has been created, the subnet IDs including wh
   <img src="./fig/cloudformationoutputs.png" alt=".." title="Optional title" width="60%" height="70%"/>  
  <figcaption></figcaption>
 </figure>
-
-```python
-
-```
