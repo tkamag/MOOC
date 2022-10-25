@@ -18,3 +18,8 @@
   <img src="./fig/01-secondary_VPC.png" alt=".." title="Optional title" width="60%" height="70%"/>  
  <figcaption></figcaption>
 </figure>
+
+||
+|:--:|
+| <img width=200px src="./fig/00-primary_VPC.png" alt="image alt text"> |
+| <img width="100%" src="./fig/00-primary_VPC.png"> |
