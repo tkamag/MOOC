@@ -49,7 +49,7 @@ ____
 
 ### A.1.3 Primary and Secondary VPC Subnets
 
- <img width="100%" src="./fig/00-primaryDB_VPC_subnets.png">
+ <img width="100%" src="./fig/00-primary_VPC_subnets.png">
 <p style='text-align: center; margin-right: 3em; font-family: Serif;'><b> Primary VPC subnet in North Virginia </b></p>
 
  <img width="100%" src="./fig/01-secondary_VPC_subnets.png">
