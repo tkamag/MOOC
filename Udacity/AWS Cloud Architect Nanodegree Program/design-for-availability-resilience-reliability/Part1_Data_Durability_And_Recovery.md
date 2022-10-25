@@ -9,8 +9,8 @@
 **SAVE**: Screenshots of both VPCs after they are created. Name your screenshots:
 
 <figure>
-  <img src="./fig/00-primary_VPC.png" alt=".." title="Optional title" width="60%" height="70%"/>  
- <figcaption></figcaption>
+  <center><img src="./fig/00-primary_VPC.png" alt=".." title="Optional title" width="60%" height="70%"/>  
+ <center><figcaption>Primary VPC in North Virginia region</figcaption>
 </figure>
 
 <figure>
