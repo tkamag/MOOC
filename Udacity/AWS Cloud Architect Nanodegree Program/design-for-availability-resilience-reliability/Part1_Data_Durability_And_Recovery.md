@@ -87,3 +87,17 @@ In the **active** region:
 5. You have now demonstrated that you can read and write to the primary database.
 
 **Save** the log of connecting to the databse, creating the table, writing to and reading from the table in a text file called [log_primary](./log_primary.sql)
+
+
+## A.4 Monitor database
+1. Observe the **DB Connections** to the database and how this metric changes as you connect to the database
+
+2. Observe the **Replication** configuration with your multi-region read replica.
+
+**Save** screenshots of the DB Connections and the database replication configuration. Name your screenshots:
+
+ <img width="100%" src="./fig/03-monitoring_connections.png">
+<p style='text-align: center; margin-right: 3em; font-family: Serif;'><b> Primary VPC subnet in North Virginia </b></p>
+
+ <img width="100%" src="./fig/03-monitoring_replication.png">
+<p style='text-align: center; margin-right: 3em; font-family: Serif;'><b> Secondary VPC subnet in North California </b></p>
