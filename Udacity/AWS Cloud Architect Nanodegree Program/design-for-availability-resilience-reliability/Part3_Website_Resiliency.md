@@ -1,6 +1,7 @@
 # Website Resiliency
 
-A.1 Build a resilient static web hosting solution in AWS. Create a versioned S3 bucket and configure it as a static website.
+## A.1 Build a resilient static web hosting solution in AWS. 
+Create a versioned S3 bucket and configure it as a static website.
 
 1. Enter **index.html** for both Index document and Error document
 
@@ -24,7 +25,7 @@ A.1 Build a resilient static web hosting solution in AWS. Create a versioned S3 
  <img width="100%" src="./fig/06-s3_season.png">
 <p style='text-align: center; margin-right: 3em; font-family: Serif;'><b> Modified Web Page </b></p>
 
-You will now need to **recover** the website by rolling the content back to a previous version.
+## A.3 You will now need to **recover** the website by rolling the content back to a previous version.
 
 1. Recover the index.html object back to the original version
 2. Refresh web page
@@ -34,7 +35,7 @@ You will now need to **recover** the website by rolling the content back to a pr
  <img width="100%" src="./fig/06-s3_season_revert.png">
 <p style='text-align: center; margin-right: 3em; font-family: Serif;'><b> Season revert Web Page </b></p>
 
-You will now “accidentally” delete contents from the S3 bucket. Delete **winter.jpg**
+## A.5 You will now “accidentally” delete contents from the S3 bucket. Delete **winter.jpg**
 
 **SAVE** screenshots of the modified webpage and of the existing versions of the file showing the **Deletion marker**. Name your screenshots:
 
@@ -44,7 +45,7 @@ You will now “accidentally” delete contents from the S3 bucket. Delete **win
  <img width="100%" src="./fig/06-s3_delete_marker.png">
 <p style='text-align: center; margin-right: 3em; font-family: Serif;'><b> S3 deletion marker </b>
 
-You will now need to **recover** the object:
+## A.6 You will now need to **recover** the object:
 
 1. Recover the deleted object
 2. Refresh web page
