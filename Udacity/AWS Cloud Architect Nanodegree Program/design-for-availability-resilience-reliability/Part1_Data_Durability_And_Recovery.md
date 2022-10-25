@@ -62,3 +62,13 @@ ____
 
  <img width="100%" src="./fig/01-secondary_VPC_route_table.png">
 <p style='text-align: center; margin-right: 3em; font-family: Serif;'><b> Secondary VPC subnet in North California </b></p>
+
+## A.2 Availability Estimate
+Write a paragraph or two describing the achievable Recovery Time Objective (RTO) and Recovery Point Objective (RPO) for this Multi-AZ, multi-region database in terms of:
+
+1. Minimum RTO for a single AZ outage
+2. Minimum RTO for a single region outage
+3. Minimum RPO for a single AZ outage
+4. Minimum RPO for a single region outage
+
+**Save** your answers in a text file named [estimate.txt](./estimates.md)
