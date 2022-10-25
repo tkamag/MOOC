@@ -1,7 +1,7 @@
 # Project: Recoverability In AWS
 
 <figure>
-  <img src="./fig/aws-cloudformation.png" alt=".." title="Optional title" width="20%" height="15%"/>  
+  <center><img src="./fig/aws-cloudformation.png" alt=".." title="Optional title" width="20%" height="15%"/></center>  
  <figcaption></figcaption>
 </figure>
 
