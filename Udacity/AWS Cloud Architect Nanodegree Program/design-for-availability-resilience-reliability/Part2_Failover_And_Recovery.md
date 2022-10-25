@@ -13,7 +13,7 @@ Task List
 
 **SAVE** log of connecting to the database, writing to and reading from the table in a text file called [log_rr_before_promotion.txt](./lo_rr_before_promotions.sql)
 
-**SAVE** screenshot of the database configuration now, before promoting the read replica database in the next step. Name your screenshot: rr_before_promotion.png
+**SAVE** screenshot of the database configuration now, before promoting the read replica database in the next step. Name your screenshot: [rr_before_promotion.png](./fig/04-rr_before_promotion.png)
 
  <img width="100%" src="./fig/04-rr_before_promotion.png">
 <p style='text-align: center; margin-right: 3em; font-family: Serif;'><b> Database in standby region before proting read replicate </b></p>
@@ -26,7 +26,7 @@ Task List
 
 **SAVE** log of connecting to the database, writing to and reading from the database in a text file named [log_rr_after_promotion.txt](./lo_rr_after_promotions.sql)
 
-**SAVE** log of connecting to the database, writing to and reading from the database in a text file named rr_after_promotion.png
+**SAVE** log of connecting to the database, writing to and reading from the database in a text file named [rr_after_promotion.png](./fig/05_rr_after_promotion.png)
 
  <img width="100%" src="./fig/05_rr_after_promotion.png">
 <p style='text-align: center; margin-right: 3em; font-family: Serif;'><b> Read replica Database after beibg promote </b></p>
