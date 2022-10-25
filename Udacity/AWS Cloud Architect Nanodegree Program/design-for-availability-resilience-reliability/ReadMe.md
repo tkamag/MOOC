@@ -59,3 +59,7 @@ Here, you can find the VPC ID that has been created, the subnet IDs including wh
 </figure>
 
 ## [Part1: Data Durability And Recovery](./Part1_Data_Durability_And_Recovery.md)
+
+## [Part2: Failover And Recovery](./Part2_Failover_And_Recovery.md)
+
+## [Part3: Website Resiliency](./Part3_Website_Resiliency.md)
