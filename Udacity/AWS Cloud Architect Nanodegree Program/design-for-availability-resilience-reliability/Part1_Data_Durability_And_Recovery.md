@@ -9,8 +9,9 @@
 **SAVE**: Screenshots of both VPCs after they are created. Name your screenshots:
 ____
 
-
-
- <img width="100%" src="./fig/00-primary_VPC.png"> 
+ <img width="100%" src="./fig/00-primary_VPC.png">
 <p style='text-align: center; margin-right: 3em; font-family: Serif;'><b> Moon and meow </b></p>
 
+ <img width="100%" src="./fig/01-secondary_VPC.png">
+<p style='text-align: center; margin-right: 3em; font-family: Serif;'><b> Moon and meow </b></p>
+_____
