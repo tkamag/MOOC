@@ -17,21 +17,48 @@ ____
 _____
 
 ## A.1 Highly durable RDS Database
+
 1. Create a new RDS Subnet group in the active and standby region using private subnets.
-   
+
 2. Create a new MySQL, multi-AZ database in the active region. The database must:
-  * Be a **burstable** instance class.
-  * Have only the **UDARR-Database** security group.
-  * Have an initial database called **udacity**.
+
+* Be a **burstable** instance class.
+* Have only the **UDARR-Database** security group.
+* Have an initial database called **udacity**.
 
 3. Create a read replica database in the standby region. This database has the same requirements as the database in the active region.
 
 **SAVE**: Screenshots of the configuration of the databases in the active and secondary region after they are created. Also, save screenshots of the configuration of the database subnet groups as well as route tables associated with those subnets.
 ____
 
+### A.1.1 Primary and Secondary Database Config
+
  <img width="100%" src="./fig/00-primaryDB_config.png">
 <p style='text-align: center; margin-right: 3em; font-family: Serif;'><b> Primary VPC in North Virginia </b></p>
 
  <img width="100%" src="./fig/01-Read_replicaDB_config.png">
 <p style='text-align: center; margin-right: 3em; font-family: Serif;'><b> Secondary VPC in North California </b></p>
-_____
+
+### A.1.2 Primary and Secondary Database Subnet Groups
+
+ <img width="100%" src="./fig/00-primaryDB_subnet_group.png">
+<p style='text-align: center; margin-right: 3em; font-family: Serif;'><b> Primary Subnet groups in North Virginia </b></p>
+
+ <img width="100%" src="./fig/01-secondaryDB_subnet_group.png">
+<p style='text-align: center; margin-right: 3em; font-family: Serif;'><b> Secondary Subnet groups in North California </b></p>
+
+### A.1.3 Primary and Secondary VPC Subnets
+
+ <img width="100%" src="./fig/00-primaryDB_VPC_subnets.png">
+<p style='text-align: center; margin-right: 3em; font-family: Serif;'><b> Primary VPC subnet in North Virginia </b></p>
+
+ <img width="100%" src="./fig/01-secondary_VPC_subnets.png">
+<p style='text-align: center; margin-right: 3em; font-family: Serif;'><b> Secondary VPC subnet in North California </b></p>
+
+### A.1.4 Primary and Secondary Subnet Routing
+
+ <img width="100%" src="./fig/00-primary_VPC_route_table.png">
+<p style='text-align: center; margin-right: 3em; font-family: Serif;'><b> Primary VPC subnet in North Virginia </b></p>
+
+ <img width="100%" src="./fig/01-secondary_VPC_route_table.png">
+<p style='text-align: center; margin-right: 3em; font-family: Serif;'><b> Secondary VPC subnet in North California </b></p>
