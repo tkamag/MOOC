@@ -31,7 +31,7 @@ In order to build a VPC from the YAML file, follow the steps (keep in mind you'l
 
 
 <figure>
-  <img src="./fig/cloudformationCreate.PNG" alt=".." title="Optional title" width="60%" height="70%"/>  
+  <img src="./fig/cloudformationCreate.png" alt=".." title="Optional title" width="60%" height="70%"/>  
 	<figcaption></figcaption>
 </figure>
 
@@ -51,7 +51,7 @@ The **Output** tab shows you custom output from the **CloudFormation** Stack tha
 Here, you can find the VPC ID that has been created, the subnet IDs including which subnets are public and which are private, and the Security Groups that have been created and a description of each.
 
 <figure>
-  <img src="./fig/cloudformationoutputs.PNG" alt=".." title="Optional title" width="60%" height="70%"/>  
+  <img src="./fig/cloudformationoutputs.png" alt=".." title="Optional title" width="60%" height="70%"/>  
 	<figcaption></figcaption>
 </figure>
 
