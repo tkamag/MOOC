@@ -88,7 +88,7 @@ In the **active** region:
 
 5. You have now demonstrated that you can read and write to the primary database.
 
-**Save** the log of connecting to the databse, creating the table, writing to and reading from the table in a text file called [log_primary](./log_primary.sql)
+**Save** the log of connecting to the databse, creating the table, writing to and reading from the table in a text file called [log_primary.txt](./log_primary.sql)
 
 ## A.4 Monitor database
 
