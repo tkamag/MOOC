@@ -7,11 +7,12 @@
 **NOTE**: Be sure to use different CIDR address ranges for the VPCs.
 
 **SAVE**: Screenshots of both VPCs after they are created. Name your screenshots:
-
+<p align="center">
 <figure>
-  <center><img src="./fig/00-primary_VPC.png" alt=".." title="Optional title" width="60%" height="70%"/>  
- <center><figcaption>Primary VPC in North Virginia region</figcaption>
+  <img src="./fig/00-primary_VPC.png" alt=".." title="Optional title" width="60%" height="70%"/>  
+ <figcaption>Primary VPC in North Virginia region</figcaption>
 </figure>
+</p>
 
 <figure>
   <img src="./fig/01-secondary_VPC.png" alt=".." title="Optional title" width="60%" height="70%"/>  
