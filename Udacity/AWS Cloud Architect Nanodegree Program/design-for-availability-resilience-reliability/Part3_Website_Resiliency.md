@@ -1,5 +1,6 @@
 # Website Resiliency
-Build a resilient static web hosting solution in AWS. Create a versioned S3 bucket and configure it as a static website.
+
+A.1 Build a resilient static web hosting solution in AWS. Create a versioned S3 bucket and configure it as a static website.
 
 1. Enter **index.html** for both Index document and Error document
 
@@ -12,7 +13,7 @@ Build a resilient static web hosting solution in AWS. Create a versioned S3 buck
  <img width="100%" src="./fig/06-s3_original.png">
 <p style='text-align: center; margin-right: 3em; font-family: Serif;'><b> Original Web Page </b></p>
 
-You will now **accidentally** change the contents of the website such that it is no longer serving the correct content
+## A.2 You will now **accidentally** change the contents of the website such that it is no longer serving the correct content
 
 1. Change index.html to refer to a different **season**
 2. Re-upload index.html
